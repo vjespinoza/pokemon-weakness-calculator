@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es-US">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Pokémon Weakness Calculator</title>
+        <link rel="stylesheet" href="css/styles.css" />
+        <!-- Google font: "Exo 2" -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;500;600&display=swap"
+            rel="stylesheet"
+        />
+    </head>
+    <body>
+        <main class="main">
+            <h1 class="title">Pokémon Weakness Calculator</h1>
+            <section class="container">
+                <form class="form" id="form">
+                    <div class="form_input-group">
+                        <input
+                            class="form__input"
+                            type="text"
+                            name="form__input"
+                            id="form__input"
+                            value=""
+                            placeholder="Enter a pokémon name or ID"
+                        />
+                        <label class="form__label" for="form__input"
+                            >Enter a pokémon name or ID</label
+                        >
+                        <input
+                            class="form__button"
+                            type="submit"
+                            value="Go!"
+                            id="form__button"
+                        />
+                    </div>
+                </form>
+
+                <div class="results" id="results"></div>
+            </section>
+        </main>
+    </body>
+    <!-- Axios CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="/js/app.js"></script>
+</html>
