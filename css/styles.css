@@ -21,7 +21,6 @@ h4 {
 
 li {
     list-style: none;
-    margin-right: 20px;
 }
 
 input {
@@ -146,6 +145,8 @@ input {
 
 .results ul {
     display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
 .results ul li {

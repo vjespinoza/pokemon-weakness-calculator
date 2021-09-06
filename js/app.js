@@ -4,7 +4,7 @@ let results = document.getElementById("results");
 
 form.addEventListener("submit", (e) => {
     e.preventDefault();
-    results.innerHTML = "";
+    cleanResults();
     let query = input.value;
     query &&
         axios
@@ -148,6 +148,10 @@ const notifyError = () => {
     error.textContent = "Incorrect name or ID, please try again...";
     error.setAttribute("style", "color: #d60000");
     results.appendChild(error);
+};
+
+const cleanResults = () => {
+    results.innerHTML = "";
 };
 
 const colorizer = (type) => {
