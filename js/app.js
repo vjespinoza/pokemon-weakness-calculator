@@ -4,6 +4,7 @@ let results = document.getElementById("results");
 
 form.addEventListener("submit", (e) => {
     e.preventDefault();
+    results.innerHTML = "";
     let query = input.value;
     query &&
         axios
@@ -83,7 +84,16 @@ form.addEventListener("submit", (e) => {
                     )
                     .then((damageByType) => {
                         calculateWeakness(damageByType);
+                    })
+                    .catch((error) => {
+                        console.log(error);
+                        return;
                     });
+            })
+            .catch((error) => {
+                if (error) {
+                    notifyError();
+                }
             });
 });
 
@@ -106,7 +116,9 @@ const calculateWeakness = (types) => {
     let weakness = [...commonTypes, ...uncommonTypes].filter((w) => {
         return w.value >= 2;
     });
+
     writeResults(name, weakness);
+
     return weakness;
 };
 
@@ -129,6 +141,13 @@ const writeResults = (name, weakness) => {
         listItem.textContent = `${w.name} ${w.value}x`;
         list.appendChild(listItem);
     });
+};
+
+const notifyError = () => {
+    let error = document.createElement("h2");
+    error.textContent = "Incorrect name or ID, please try again...";
+    error.setAttribute("style", "color: #d60000");
+    results.appendChild(error);
 };
 
 const colorizer = (type) => {
