@@ -1,6 +1,6 @@
 :root {
     --main: #46aef7;
-    --accent: #3a0ca3;
+    --accent: #764ba2;
     --font: #616060;
 }
 
@@ -16,7 +16,12 @@ h1,
 h2,
 h3,
 h4 {
-    font-weight: 400;
+    font-weight: 300;
+}
+
+li {
+    list-style: none;
+    margin-right: 20px;
 }
 
 input {
@@ -29,28 +34,27 @@ input {
     flex-direction: column;
     justify-content: top;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     width: 100%;
-    background-image: linear-gradient(40deg, #84fab0 0%, #8fd3f4 100%);
+    background-image: linear-gradient(to top, #00c6fb 0%, #005bea 100%);
 }
 
 .title {
     color: #fff;
-    margin-top: 5vw;
-    font-size: 2.5rem;
+    margin-top: 5vh;
+    font-size: clamp(2rem, 5vw, 4rem);
+    text-align: center;
 }
 
 .container {
-    display: grid;
-    grid-template-areas:
-        "title"
-        "form"
-        "results";
-    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 90%;
     height: fit-content;
-    min-width: 360px;
+    min-width: 320px;
     max-width: 600px;
-    margin-top: 10vw;
+    margin-top: 50px;
     padding: 30px;
     border-radius: 5px;
     box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
@@ -58,13 +62,13 @@ input {
 }
 
 .form_input-group {
+    margin-top: 30px;
     position: relative;
-    background-color: tomato;
 }
 
 .form__input {
     width: 100%;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     padding: 0 4rem 0 10px;
     height: 3.5rem;
     border-radius: 3px;
@@ -73,6 +77,7 @@ input {
 
 .form__input::placeholder {
     color: transparent;
+    visibility: hidden;
 }
 
 .form__input:focus {
@@ -87,10 +92,10 @@ input {
 
 .form__input:focus-within ~ .form__label,
 .form__input:not(:placeholder-shown) ~ .form__label {
-    top: -70px;
-    left: -30px;
-    transform: scale(1.5);
-    color: #fff;
+    top: -35px;
+    left: -5px;
+    color: var(--accent);
+    transform: scale(1.25);
     transition: all ease-in-out 200ms;
 }
 
@@ -121,16 +126,33 @@ input {
     cursor: pointer;
     font-size: 1.2rem;
     color: #fff;
-    background-image: radial-gradient(
-        circle 248px at center,
-        #16d9e3 0%,
-        #30c7ec 47%,
-        #46aef7 100%
-    );
+    background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 }
 
 .results {
-    display: none;
+    display: block;
     width: 100%;
-    margin-top: 40px;
+    margin-top: 10px;
+}
+
+.results h2 span,
+.results ul li {
+    text-transform: capitalize;
+}
+
+.results h2 {
+    margin: 30px 0 20px 0;
+}
+
+.results ul {
+    display: flex;
+}
+
+.results ul li {
+    display: inline-block;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    padding: 8px 12px;
+    color: #fff;
+    font-weight: 500;
 }
